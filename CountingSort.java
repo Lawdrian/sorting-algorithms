@@ -1,13 +1,13 @@
 public class CountingSort {
 
-    public static int[] countingSort(int[] unsorted) {
+    public static int[] countingSort(int[] arr) {
 
-        int aLength = unsorted.length;
+        int aLength = arr.length;
 
         // 1. find highest value
-        int maxValue = unsorted[0];
+        int maxValue = arr[0];
         for (int i = 1; i <= aLength - 1; i++) {
-            if (unsorted[i] > maxValue) maxValue = unsorted[i];
+            if (arr[i] > maxValue) maxValue = arr[i];
         }
 
         // 2. create counting array; + 1 because array starts at index 0
@@ -15,7 +15,7 @@ public class CountingSort {
 
         // 3. for every number in the unsorted array, increase the value in the c array at that index for 1
         for (int i = 0; i <= aLength - 1; i++) {
-            c[unsorted[i]]++;
+            c[arr[i]]++;
         }
 
         // 4. summ up the values in the c array
@@ -38,12 +38,12 @@ public class CountingSort {
 
         // 6. add the numbers in rising order into the sorted array
         for (int i = aLength - 1; i >= 0; i--) {
-            System.out.println("index: " + i + ", position: " + c[unsorted[i]] + ", value: " + unsorted[i]);
+            System.out.println("index: " + i + ", position: " + c[arr[i]] + ", value: " + arr[i]);
 
             // -1 neccessary, because array index starts at 0
-            sorted[c[unsorted[i]] - 1] = unsorted[i];
+            sorted[c[arr[i]] - 1] = arr[i];
             // reduce value by one, so that if the same value appears again, it will be put infront
-            c[unsorted[i]]--;
+            c[arr[i]]--;
         }
 
         return sorted;

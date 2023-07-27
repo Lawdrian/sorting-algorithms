@@ -15,27 +15,28 @@ public class Main {
         return array;
     }
 
+    public static void printArray(int[] arr) {
+        System.out.print("[");
+        for (int i = 0; i <= arr.length - 1; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println("]");
+    }
 
     public static void main(String[] args) {
 
         int[] unsortedArray = createRandom(5);
-
+        //int[] unsortedArray = {4,5,2,6,3};
         // print out unsorted array
         System.out.print("unsorted array: ");
-        for (int i = 0; i <= unsortedArray.length - 1; i++) {
-            System.out.print(unsortedArray[i] + ", ");
-        }
-        System.out.println();
+        printArray(unsortedArray);
 
         // use a sorting-algorithm to sort the array. low -> high number
-        int[] sortedArray = SelectionSort.selectionSort(unsortedArray);
+        //int[] sortedArray = SelectionSort.selectionSort(unsortedArray);
         //int[] sortedArray = CountingSort.countingSort(unsortedArray);
-
+        int[] sortedArray = QuickSort.initialize(unsortedArray);
         // print out sorted array
         System.out.print("sorted array: ");
-        for (int i = 0; i <= sortedArray.length - 1; i++) {
-            System.out.print(sortedArray[i] + ", ");
-        }
-        System.out.println();
+        printArray(sortedArray);
     }
 }
